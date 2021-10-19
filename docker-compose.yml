@@ -13,6 +13,16 @@ services:
       - POSTGRES_DB=maestriadb
     volumes: 
       - pgdata:/data/postgres
+  app:
+    build: .
+    container_name: maestria-api
+    restart: always
+    ports:
+      - 4000:4000
+    environment:
+      - DATABASE_URL=postgresql://maestria:maestria2021@database_postgres:5432/maestriadb?schema=public
+    depends_on:
+      - ecommerce_database_postgres
 
 volumes:
   pgdata:
