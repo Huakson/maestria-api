@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . . 
 
+CMD ["npx","prisma","migrate","deploy","--preview-feature"]
+
 EXPOSE 4000
 
 CMD ["npm","run","dev"] 
