@@ -7,7 +7,7 @@ COPY package.json ./
 RUN npm install
 
 COPY . . 
-
+CMD ["npx","prisma","generate"]
 CMD ["npx","prisma","migrate","deploy","--preview-feature"]
 
 EXPOSE 4000

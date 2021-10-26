@@ -12,7 +12,7 @@ class CreateRefreshTokenUseCase {
   ) {}
 
   async execute(userId: string): Promise<RefreshToken> {
-    const expiresIn = await dayjs().add(15, "second").unix();
+    const expiresIn = await dayjs().add(5, "hour").unix();
 
     return this.refreshTokenRepository.create({
       expiresIn,
